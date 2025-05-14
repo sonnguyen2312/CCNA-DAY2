@@ -8,6 +8,26 @@
   - Ping thất bại từ VLAN 20 → VLAN 30 (do chưa có router).
 - Bài tập: Chia subnet 172.16.0.0/16 thành 8 subnet /19, mỗi subnet 8,190 host.
   - Dải: 172.16.0.0/19 – 172.16.31.255, 172.16.32.0/19 – 172.16.63.255, ..., 172.16.224.0/19 – 172.16.255.255.
+  - SW1
+vlan 20
+name FactoryTB2
+interface range g1/0/1-2
+switchport mode access
+switchport access vlan 20
+no shutdown
+interface g1/0/3
+switchport mode trunk
+switchport trunk allowed vlan 20
+- SW2
+vlan 30
+name FactoryTB3
+interface range g1/0/1-2
+switchport mode access
+switchport access vlan 30
+no shutdown
+interface g1/0/3
+switchport mode trunk
+switchport trunk allowed vlan 30
 - Ảnh topology:
 - ![image](https://github.com/user-attachments/assets/c659df71-326e-4b86-bc4b-5e0a7fa85555)
 ![image](https://github.com/user-attachments/assets/fcc07366-7a10-4e74-b2b8-40d6c441fd4a)
